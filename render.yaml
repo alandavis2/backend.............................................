@@ -1,0 +1,15 @@
+# Sample Render service manifest. Adjust names and region as needed.
+# See https://render.com/docs/deploy-your-own for details.
+services:
+  - type: web
+    name: userbackend
+    env: node
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+    healthCheckPath: /health
